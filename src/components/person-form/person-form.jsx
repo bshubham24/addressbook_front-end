@@ -3,7 +3,7 @@ import './person-form.scss';
 import logo from '../../assets/icons/logo.png'
 import cancelIcon from '../../assets/icons/cancel3.png'
 import AddressBookService from "../../services/addressbook-service";
-import { useParams, Link, withRouter,} from 'react-router-dom';
+import { useParams,  withRouter,} from 'react-router-dom';
 
 const PersonForm = (props) => {
     let initialValue = {
@@ -175,7 +175,7 @@ const PersonForm = (props) => {
                     </div>
                     <div className="column">
                         <label className="label text" htmlFor="fullName">Full Name</label>
-                        <input className="input" type="text" id="fullName" name="fullName" value={formValue.fullName} onChange={changeValue} placeholder="Your firstname.." />
+                        <input className="input" type="text" id="fullName" name="fullName" value={formValue.fullName} onChange={changeValue} />
                     <error className="error">{formValue.error.fullName}</error>
                     </div>
                     <div className="column">
@@ -191,34 +191,44 @@ const PersonForm = (props) => {
                     <error className="error">{formValue.error.address}</error>
                     </div>
                     <div className="row">
-                    <div>
-                        <label className="label text" htmlFor="city">City</label>
-                        <input className="input" type="text" id="city" name="city" value={formValue.city} onChange={changeValue} />
+                    <div >
+                            <span className="label text">City</span>
+                            <select name="city" id="city" className="input" value={formValue.city} onChange={changeValue}>
+                            <option value="city">Select City</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Pune">Bangalore</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                            </select>
+                            
+                        </div>
                         <error className="error">{formValue.error.city}</error>
-                    </div>
-
-                    <div>
-                        <label className="label text" htmlFor="state">State</label>
-                        <input className="input" type="text" id="state" name="state" value={formValue.state} onChange={changeValue} />
+                        <div >
+                            <span className="label text">State</span>
+                            <select name="state" id="state" className="input" value={formValue.state} onChange={changeValue}>
+                            <option value="state">Select State</option>
+                                <option value="Maharastra">Maharastra</option>
+                                <option value="Karnatak">Karnataka</option>
+                                <option value="Telangna">Telangana</option>
+                            </select>
+                            
+                        </div>
                         <error className="error">{formValue.error.state}</error>
-                    </div>
-
-                    <div>
-                        <label className="label text" htmlFor="zip">Zip</label>
+                        <div>
+                        <label className="label text" htmlFor="zip">Zip Code</label>
                         <input className="input" type="text" id="zip" name="zip" value={formValue.zip} onChange={changeValue} />
-                        <error className="error">{formValue.error.zip}</error>
+                   
                     </div>
+                    <error className="error">{formValue.error.zip}</error>
                     </div>
 
-                    <div className="button-container">
-                     <div className="button-row">
+                    
 
                         <div className="submit-reset">
                             <button type="submit" className="button add-button" id="button add-button">{formValue.isUpdate ? 'Update' : 'Add'}</button>
                             <button type="button" onClick={reset} className="button reset-button">Reset</button>
                         </div>
-                        </div>
-                    </div >
+                    
+                    
                 </form >
             </div >
         </div >
