@@ -10,7 +10,6 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       addressBookArray: [],
-      AllPersonsArray: [],
     };
     this.addressBookService = new AddressBookService();
   }
@@ -26,7 +25,6 @@ export default class Home extends React.Component {
         console.log("Contact ", response.data.data);
         this.setState({
           addressBookArray: response.data.data,
-          AllPersonsArray: response.data.data,
         });
       })
       .catch((err) => {
@@ -40,7 +38,7 @@ export default class Home extends React.Component {
       <div>
         <header className='header row center'>
                 <div className="logo">
-                    <img src={logo} alt="" width="30px" />
+                    <img src={logo} alt="" width="37px" />
                     <div>
                         <span className="emp-text">ADDRESS</span> <br />
                         <span className="emp-text emp-payroll">BOOK</span>
@@ -62,7 +60,7 @@ export default class Home extends React.Component {
           <div className="table-main">
             <Display
               addressBookArray={this.state.addressBookArray}
-              getAllEmployee={this.getAllEmployee}
+              getAllPersons={this.getAllPerson}
             />
           </div>
         </div>
